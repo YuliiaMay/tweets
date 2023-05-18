@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchUsersInfo } from "../../services/tweets-api";
+import UserInfoCard from "../UserInfoCard/UserInfoCard";
+import { UsersGallery } from "./UsersInfoList.styled";
 
 const UsersInfoList = () => {
     const [usersInfo, setUsersInfo] = useState([]);
@@ -19,13 +21,19 @@ const UsersInfoList = () => {
     }, []);
 
     return ( 
-        <ul>
+        <UsersGallery>
             {
                 usersInfo.map(({ user, id, tweets, followers, avatar }) =>
-                    <li key={id}>{user}</li>)
-                
+                    <UserInfoCard
+                        key={id}
+                        userName={user}
+                        tweetsCount={tweets}
+                        followersCount={followers}
+                        avatar={avatar}
+                    />
+                )
             }
-        </ul>
+        </UsersGallery>
     );
 }
 
