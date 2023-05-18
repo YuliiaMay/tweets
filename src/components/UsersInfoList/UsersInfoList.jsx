@@ -21,7 +21,9 @@ const UsersInfoList = () => {
     return ( 
         <ul>
             {
-                <li>point</li>
+                usersInfo.map(({ user, id, tweets, followers, avatar }) =>
+                    <li key={id}>{user}</li>)
+                
             }
         </ul>
     );
