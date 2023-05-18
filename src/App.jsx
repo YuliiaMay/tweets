@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import './App.css'
-import Layout from './Layout'
+import Layout from './components/Layout/Layout'
 import HomePage from './pages/HomePage/HomePage'
 import TweetsPage from './pages/TweetsPage/TweetsPage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
@@ -15,12 +14,9 @@ function App() {
           <Route path='/tweets' element={<TweetsPage/>} />
           <Route path='*' element={<NotFoundPage />} />
         </Route>
-
       </Routes>
-
     </>
   )
-
 }
 
 export default App

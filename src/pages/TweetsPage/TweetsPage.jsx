@@ -1,8 +1,12 @@
+import UserCardsList from "../../components/UserCardsList/UserCardsList";
+
 const TweetsPage = () => {
     return (
-        <>
-            <div>TweetsPage</div>
-        </>
+        <section>
+            <div>
+                <UserCardsList/>
+            </div>       
+        </section>
     )
 };
 
