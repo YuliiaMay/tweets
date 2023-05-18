@@ -1,10 +1,10 @@
-import UserCardsList from "../../components/UserCardsList/UserCardsList";
+import UsersInfoList from "../../components/UsersInfoList/UsersInfoList";
 
 const TweetsPage = () => {
     return (
         <section>
             <div>
-                <UserCardsList/>
+                <UsersInfoList/>
             </div>       
         </section>
     )
