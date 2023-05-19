@@ -51,15 +51,58 @@ export const Avatar = styled.img`
 
 export const AvatarBorder = styled.img`
     position: absolute;
-    // width: 80px;
-    // height: 80px;
     top: 168px;
     left: 136px;
 `;
 
 export const InfoBlock = styled.div`
     position: relative;
-    top: 62px;
-    display: 
+    top: 55px;
+    // padding-top: 12px;
 `;
+
+export const User = styled.p`
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 16px;
+`;
+
+export const Text = styled.p`
+    font-family: Montserrat;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 20px;
+    color: #EBD8FF;
+    text-align: center;
+
+    &:not(:last-child) {
+        margin-bottom: 12px;
+    }
+`;
+
+export const FollowBtn = styled.button`
+    width: 196px;
+    height: 50px;
+    border-radius: 10.31px;
+    background-color: #EBD8FF;
+    margin-right: auto;
+    margin-left: auto;
+
+    &:hover,
+    &:focus {
+        background-color: #5CD3A8;
+    }
+`;
+
+export const BtnText = styled.span`
+    color: #373737;
+    font-family: Montserrat;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+`;
+
 

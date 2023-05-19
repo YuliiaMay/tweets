@@ -1,11 +1,17 @@
-import { Card, Wrapper, CardLogo, CardImg, StyledLine, Avatar, AvatarBorder, InfoBlock } from "./UserInfoCard.styled";
+import { Card, Wrapper, CardLogo, CardImg, StyledLine, Avatar, AvatarBorder, InfoBlock, Text, User, FollowBtn, BtnText } from "./UserInfoCard.styled";
 import goitLogo from "../../images/card/logo.svg";
 import cardBackground from "../../images/card/background.png"
-
+import { useState } from "react";
 
 const ellipsePath = new URL('../../images/card/ellipse.svg', import.meta.url);
 
 const UserInfoCard = ({ userName, tweetsCount, followersCount, avatar }) => {
+    const [user, setUser] = useState();
+
+    const hendleFollowBtnClick = () => {
+
+    }
+    
     return (
         <Card>
             <Wrapper>
@@ -17,16 +23,16 @@ const UserInfoCard = ({ userName, tweetsCount, followersCount, avatar }) => {
 
 
                 <InfoBlock>
-                    <p>{userName}</p>
-                    <p>
-                        <span>{tweetsCount}</span>
-                        tweets
-                    </p>
-                    <p>
-                        <span>{followersCount}</span>
-                        followers
-                    </p>
-                    <button>follow</button>
+                    <User>{userName}</User>
+                    <Text>
+                        <span>{tweetsCount}</span> tweets
+                    </Text>
+                    <Text>
+                        <span>{followersCount}</span> followers
+                    </Text>
+                    <FollowBtn>
+                        <BtnText>follow</BtnText>
+                    </FollowBtn>
                 </InfoBlock>
             </Wrapper>
         </Card>
