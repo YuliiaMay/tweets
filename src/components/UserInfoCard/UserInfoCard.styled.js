@@ -91,6 +91,12 @@ export const FollowBtn = styled.button`
     margin-right: auto;
     margin-left: auto;
 
+    color: #373737;
+    font-family: Montserrat;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+
     &:hover,
     &:focus {
         background-color: #5CD3A8;

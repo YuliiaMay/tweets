@@ -1,12 +1,13 @@
 import UsersInfoList from "../../components/UsersInfoList/UsersInfoList";
+import { Section, TweetsGalleryContainer } from "./TweetsPage.styled";
 
 const TweetsPage = () => {
     return (
-        <section>
-            <div>
+        <Section>
+            <TweetsGalleryContainer>
                 <UsersInfoList/>
-            </div>       
-        </section>
+            </TweetsGalleryContainer>       
+        </Section>
     )
 };
 

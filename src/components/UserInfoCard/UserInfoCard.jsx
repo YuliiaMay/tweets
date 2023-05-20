@@ -6,10 +6,10 @@ import { useState } from "react";
 const ellipsePath = new URL('../../images/card/ellipse.svg', import.meta.url);
 
 const UserInfoCard = ({ userName, tweetsCount, followersCount, avatar }) => {
-    const [user, setUser] = useState();
+    const [user, setUser] = useState({});
 
-    const hendleFollowBtnClick = () => {
-
+    const hendleFollowBtnClick = (e) => {
+        console.log(e);
     }
     
     return (
@@ -30,8 +30,9 @@ const UserInfoCard = ({ userName, tweetsCount, followersCount, avatar }) => {
                     <Text>
                         <span>{followersCount}</span> followers
                     </Text>
-                    <FollowBtn>
-                        <BtnText>follow</BtnText>
+                    <FollowBtn onClick={hendleFollowBtnClick}>
+                        follow
+                        {/* <BtnText>follow</BtnText> */}
                     </FollowBtn>
                 </InfoBlock>
             </Wrapper>

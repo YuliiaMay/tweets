@@ -5,7 +5,6 @@ import { UsersGallery } from "./UsersInfoList.styled";
 
 const UsersInfoList = () => {
     const [usersInfo, setUsersInfo] = useState([]);
-    console.log(usersInfo);
 
     useEffect(() => {
         async function getUsersInfo() {
