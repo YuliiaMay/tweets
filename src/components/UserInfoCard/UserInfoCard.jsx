@@ -5,15 +5,23 @@ import { useState } from "react";
 
 const ellipsePath = new URL('../../images/card/ellipse.svg', import.meta.url);
 
-const UserInfoCard = ({ userName, tweetsCount, followersCount, avatar }) => {
-    const [user, setUser] = useState({});
+const UserInfoCard = ({ userName, tweetsCount, followersCount, avatar, isFollowing }) => {
+    const handleToggleFollowing = (e) => {
+        if (e.currentTarget.nodeName !== 'LI') return;
 
-    const hendleFollowBtnClick = (e) => {
-        console.log(e);
-    }
+        const followBtn = e.target.closest("button");
+        console.log(followBtn);
+        if(e.target.nodeName === 'BUTTON')
+        console.log(e.target);
+    };
+
+
+    // const hendleFollowBtnClick = (e) => {
+    //     setIsUser(true);
+    // }
     
     return (
-        <Card>
+        <Card onClick={handleToggleFollowing}>
             <Wrapper>
                 <CardLogo src={goitLogo} alt="logo"/>
                 <CardImg src={cardBackground} alt="backgroung" />
@@ -30,8 +38,13 @@ const UserInfoCard = ({ userName, tweetsCount, followersCount, avatar }) => {
                     <Text>
                         <span>{followersCount}</span> followers
                     </Text>
-                    <FollowBtn onClick={hendleFollowBtnClick}>
-                        follow
+                    <FollowBtn>
+                        {
+                            isFollowing
+                                ? <span>following</span>
+                                : <span>follow</span>
+                        }
+                        
                         {/* <BtnText>follow</BtnText> */}
                     </FollowBtn>
                 </InfoBlock>
