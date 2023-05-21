@@ -87,7 +87,7 @@ export const FollowBtn = styled.button`
     width: 196px;
     height: 50px;
     border-radius: 10.31px;
-    background-color: #EBD8FF;
+    background-color: ${props => (props.value ? '#5CD3A8' : 'ebd8ff')};
     margin-right: auto;
     margin-left: auto;
 
@@ -99,7 +99,7 @@ export const FollowBtn = styled.button`
 
     &:hover,
     &:focus {
-        background-color: #5CD3A8;
+        background-color: ${props => (props.value ? '#ebd8ffaa' : '#5cd3a7aa')};
     }
 `;
 

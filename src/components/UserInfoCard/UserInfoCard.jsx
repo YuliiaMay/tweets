@@ -5,23 +5,11 @@ import { useState } from "react";
 
 const ellipsePath = new URL('../../images/card/ellipse.svg', import.meta.url);
 
-const UserInfoCard = ({ userName, tweetsCount, followersCount, avatar, isFollowing }) => {
-    const handleToggleFollowing = (e) => {
-        if (e.currentTarget.nodeName !== 'LI') return;
+const UserInfoCard = ( {id, user, tweets, followers, avatar, isFollowing, onClick }) => {
+    // const { id, user, tweets, followers, avatar, isFollowing } = user;
 
-        const followBtn = e.target.closest("button");
-        console.log(followBtn);
-        if(e.target.nodeName === 'BUTTON')
-        console.log(e.target);
-    };
-
-
-    // const hendleFollowBtnClick = (e) => {
-    //     setIsUser(true);
-    // }
-    
     return (
-        <Card onClick={handleToggleFollowing}>
+        <Card>
             <Wrapper>
                 <CardLogo src={goitLogo} alt="logo"/>
                 <CardImg src={cardBackground} alt="backgroung" />
@@ -31,14 +19,18 @@ const UserInfoCard = ({ userName, tweetsCount, followersCount, avatar, isFollowi
 
 
                 <InfoBlock>
-                    <User>{userName}</User>
+                    <User>{user}</User>
                     <Text>
-                        <span>{tweetsCount}</span> tweets
+                        <span>{tweets}</span> tweets
                     </Text>
                     <Text>
-                        <span>{followersCount}</span> followers
+                        <span>{followers.toLocaleString('en-US')}</span> followers
                     </Text>
-                    <FollowBtn>
+                    <FollowBtn
+                        type="button"
+                        value={isFollowing}
+                        onClick={() => onClick(id, isFollowing)}
+                    >
                         {
                             isFollowing
                                 ? <span>following</span>
