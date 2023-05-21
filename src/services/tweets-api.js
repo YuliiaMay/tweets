@@ -14,7 +14,7 @@ export async function fetchUsersInfo () {
 };
 
 
-export async function updateUsersInfo (id) {
+export async function updateUsersInfo (id, isFollowing, followers) {
     try {
         const response = await axios.put(`/user/${id}`, {isFollowing, followers});
         if (response.status === 200) {
