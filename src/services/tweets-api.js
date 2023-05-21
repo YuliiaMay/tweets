@@ -12,3 +12,15 @@ export async function fetchUsersInfo () {
         console.log(error.message);
     }
 };
+
+
+export async function updateUsersInfo (id) {
+    try {
+        const response = await axios.put(`/user/${id}`, {isFollowing, followers});
+        if (response.status === 200) {
+            return response.data;
+        }
+    } catch (error) {
+        console.log(error.message);
+    }
+};
