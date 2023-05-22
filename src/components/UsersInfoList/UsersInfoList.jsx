@@ -1,22 +1,14 @@
 import UserInfoCard from "../UserInfoCard/UserInfoCard";
 import { UsersGallery } from "./UsersInfoList.styled";
 
-const UsersInfoList = ({ usersInfo, onClick }) => {
-    console.log(usersInfo);
-    return ( 
-        usersInfo &&
+const UsersInfoList = ({ users, onClick }) => {
+    return (
         <UsersGallery>
             {
-                usersInfo.map((user) =>
+                users.map((user) =>
                     <UserInfoCard
                         key={user.id}
                         {...user}
-                        // id={id}
-                        // userName={user}
-                        // tweetsCount={tweets}
-                        // followersCount={followers}
-                        // avatar={avatar}
-                        // isFollowing={isFollowing}
                         onClick={onClick}
                     />
                 )

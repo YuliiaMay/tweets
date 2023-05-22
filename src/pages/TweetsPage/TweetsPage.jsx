@@ -9,12 +9,14 @@ const TweetsPage = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        if (!users) return;
         async function getUsersInfo() {
             setIsLoading(true);
             try {
                 const data = await fetchUsersInfo();
                 setUsers(data);
                 setIsLoading(false);
+                return data;
             } catch (error) {
                 console.log(error.message);
                 setIsLoading(false);
@@ -24,34 +26,38 @@ const TweetsPage = () => {
         getUsersInfo();
     }, []);
 
-    const toggleFollowing = useCallback((id, isFollowing) => {
-        try {
-            setUsers(prevUsers => {
-                prevUsers.map(user => {
-                    if (user.id === id) {
-                        const countFollowers = isFollowing ? user.followers - 1 : user.followers + 1;
-                        console.log(countFollowers);
-                        const updatedUser = {
-                            ...user,
-                            followers: countFollowers,
-                            isFollowing: !user.isFollowing
-                        }
-                        updateUsersInfo(id, updatedUser.isFollowing, countFollowers);
-
-                        return updatedUser;
-                    }
-                    return user;
-                })
-            })
-        } catch (error) {
-            console.log(error);
-        }
-    }, []);
     
+    const onFollowClick = (id, isFollowing) => {
+        const clickedUser = users.find((user) => {
+            if (user.id === id) {
+
+                const updatedUser = {
+                    ...user,
+                    isFollowing: !user.isFollowing,
+                    followers: isFollowing ? user.followers - 1 : user.followers + 1,
+                };
+                updateUsersInfo(id, updatedUser.followers, updatedUser.isFollowing);
+                return updatedUser;    
+            }
+            
+            return user;
+            
+        });
+
+
+        
+        // if (id ===) {
+            
+        // }
+        // if(e.target.nodeName === "BUTTON") 
+    };
+
     return (
         <Section>
             <TweetsGalleryContainer>
-                <UsersInfoList usersInfo={users} onClick={toggleFollowing} />
+                {
+                    users && <UsersInfoList users={users} onClick={onFollowClick} />
+                }
             </TweetsGalleryContainer>       
         </Section>
     )
